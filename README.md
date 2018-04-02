@@ -92,7 +92,8 @@ Finally, this line directs the path to the excel sheet where it gets the stock d
 ==========================
 Additional note:
 ==========================
-To give a better insight into the rapid optimization occurring, this program plots the fitness of each generation and displays this data. Given that the aim is for the fitness to go down in this case, (confusing I know), here is an example of one such run:![](./Graph.png?raw=true "Graph of average fitness accross generations")
+To give a better insight into the rapid optimization occurring, this program plots the fitness of each generation and displays this data. Given that the aim is for the fitness to go down in this case, (confusing I know), here is an example of one such run:
+![](./Graph.png?raw=true "Graph of average fitness accross generations")
 
 
 This graph helps to provide insights into the evolution that we might not realize otherwise. For example, we can determine that the efficacy of the solution found bottoms out after fifty or so generations. We can use this information to scale back our number of generations and save on computation time.
