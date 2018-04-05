@@ -1,4 +1,4 @@
-# GeneticBreeding
+# Genetic Algorithms
 Part 1 of the neuroevolution tutorial series. Focuses on the basics of genetic breeding algorithms.
 
 Tutorial link: 
@@ -25,11 +25,11 @@ At it's core, Genetic Algorithms are a optimization method that can be applied t
 
 The code takes in the stock related data from an excel file, (futureStocks.xlsx), and returns a set of stocks based predetermined weights we input beforehand. Parameters such as the percent of the population retained after each generation, probability of random mutations, population size and number of generations are all going to affect the optimality of the result. This code, by it's very nature, is non-deterministic. Which means the same output is not guaranteed with every execution. You can change this to be deterministic by seeding the random number generators, but by doing so, you would limit the potential reach/effectiveness of the algorithm.
 
- Genetic algorithims also have a tendency to converge at local maximas, so different runs may produce solutions closer to the global optimum. I recommend running the program a few times and using the most optimal solution from these runs. Depending on how important it is for your solution to be exactly correct, you can also play with a myriad of weights/parameters, (like those previously mentioned), to achieve a better solution.
+ Genetic algorithms also have a tendency to converge at local maximas, so different runs may produce solutions closer to the global optimum. I recommend running the program a few times and using the most optimal solution from these runs. Depending on how important it is for your solution to be exactly correct, you can also play with a myriad of weights/parameters, (like those previously mentioned), to achieve a better solution.
 
- The specific problem that I chose to optimize through a genetic algorithm centers on picking a set of stocks that best meet my requirements. As a side note, I am in no way implying that any of these stocks are good investments or that the critera by which I measure them for this tutorial are even optimal investing strategies. That said, I wanted to find a list of stocks that came as close as possible to my overall budget while also valuing the dividend return and the past five years of growth. Additionaly I wanted to put extra weight on a set with a greater number of stocks over that of only a few, since this (at least in theory) increase the diverity of my portfolio. Sounds like a fun problem right? Hopefully you can see how one could use this technique to solve even more complex problems!
+ The specific problem that I chose to optimize through a genetic algorithm centers on picking a set of stocks that best meet my requirements. As a side note, I am in no way implying that any of these stocks are good investments or that the criteria by which I measure them for this tutorial are even optimal investing strategies. That said, I wanted to find a list of stocks that came as close as possible to my overall budget while also valuing the dividend return and the past five years of growth. Additionally I wanted to put extra weight on a set with a greater number of stocks over that of only a few, since this (at least in theory) increase the diversity of my portfolio. Sounds like a fun problem right? Hopefully you can see how one could use this technique to solve even more complex problems!
 
- Anyway, make sure to check out my tutorial here for a more in depth explanation on how this code works:
+ Anyway, make sure to check out my tutorial here for a more in-depth explanation on how this code works:
  http://designingafuture.com/tutorials/neuroevolutionP1
 
 ==========================
@@ -94,10 +94,11 @@ Additional note:
 ==========================
 To give a better insight into the rapid optimization occurring, this program plots the fitness of each generation and displays this data. Given that the aim is for the fitness to go down in this case, (confusing I know), here is an example of one such run:
 
-![](./Graph.png?raw=true "Graph of average fitness accross generations")
+![](./Graph.png?raw=true "Graph of average fitness across generations")
 
 
 This graph helps to provide insights into the evolution that we might not realize otherwise. For example, we can determine that the efficacy of the solution found bottoms out after fifty or so generations. We can use this information to scale back our number of generations and save on computation time.
+
 
 
 
