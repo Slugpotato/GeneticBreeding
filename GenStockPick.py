@@ -2,6 +2,7 @@ from random import random, randint
 import sys
 import matplotlib.pyplot as plt
 from openpyxl import load_workbook
+import unittest
 
 retain = 0.500
 random_select = 0.05
@@ -11,8 +12,10 @@ def main(argv=None):
     if argv is None:
         argv = sys.argv
 
-    stockDict = allStocks()
-    numOfStocks = len(stockDict)
+    listOfStocks = allStocks()
+    numOfStocks = len(listOfStocks)
+
+    print(listOfStocks)
 
     # indiList = individual(stockDict, 1, numOfStocks)
     # print("indiList is ", indiList)
@@ -35,7 +38,7 @@ def main(argv=None):
     budget = 1147
     p_count = 100
 
-    p = population(p_count, stockDict, 1, numOfStocks)
+    p = population(p_count, listOfStocks, 1, numOfStocks)
     fitness_history = [grade(p, budget), ]
     for i in range(1, 100):
         p = evolve(p, budget, retain, random_select, mutate)
@@ -81,7 +84,6 @@ def allStocks():
     letter2 = 'B'
     letter3 = 'C'
     letter4 = 'E'
-    letter5 = ''
 
     ####################################################
     ## While i is not greater than number of elements find a break up title into cells.
@@ -98,7 +100,7 @@ def allStocks():
         # Start count at 1 and iterate
         count = count + 1
 
-        # Look at the cell with A as the column and the count as the number
+        # Look at the cells in each column, using count as the row number
         stock = sheet[letter + str(count)]
 
         currPrice = sheet[letter2 + str(count)]
