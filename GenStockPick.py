@@ -15,13 +15,13 @@ def main(argv=None):
     listOfStocks = allStocks()
     numOfStocks = len(listOfStocks)
 
-    print(listOfStocks)
+    # print(listOfStocks)
 
-    # indiList = individual(stockDict, 1, numOfStocks)
+    # indiList = individual(listOfStocks, 1, numOfStocks)
     # print("indiList is ", indiList)
     # print("indiList is of length ", len(indiList))
 
-    # popList = population(10, stockDict, 1, numOfStocks)
+    # popList = population(10, listOfStocks, 1, numOfStocks)
     # print("popList is ", popList)
     # print("popList is of length ", len(popList))
 
@@ -35,7 +35,7 @@ def main(argv=None):
     # print("my evolveFunc is ", evolveFunc)
     # print("evolveFunc is of length ", len(evolveFunc))
 
-    budget = 1147
+    budget = 1000
     p_count = 100
 
     p = population(p_count, listOfStocks, 1, numOfStocks)
@@ -127,7 +127,6 @@ def allStocks():
 
     return stockList
 
-
 #### Evolution...muahahaha
 def evolve(givenPopulation, budget, retain, random_select, mutate):
 
@@ -160,9 +159,9 @@ def evolve(givenPopulation, budget, retain, random_select, mutate):
 
             pos_to_mutate = randint(0, len(x) - 1)
 
-            stockDict = allStocks()
+            listOfStocks = allStocks()
 
-            x[pos_to_mutate] = stockDict[randint(0, len(stockDict) - 1)]
+            x[pos_to_mutate] = listOfStocks[randint(0, len(listOfStocks) - 1)]
 
 
     # Breed parents to create children
