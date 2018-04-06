@@ -66,7 +66,7 @@ def main(argv=None):
     print('\n')
 
 
-    # Print out and graoh fitness history
+    # Print out and graph fitness history
     i = 0
     xAxis = []
     for gen in fitness_history:
