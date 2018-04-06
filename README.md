@@ -62,28 +62,28 @@ mutate = 0.001
 Probability of individuals in the generation of having random mutations to their set of stocks.
 
 
-On line 36:
+On line 39:
 
 budget = 1147
 
 Total budget amount to buy stocks with.
 
 
-On line 37:
+On line 40:
 
 p_count = 100
 
 The initial population count, this is culled by the retained rate above after each generation and subsequently repopulated.
 
 
-On line 41:
+On line 49:
 
 for i in range(1, 100):
 
 This range is the number of total generations executed.
 
 
-On line 75:
+On line 94:
 
 wb = load_workbook('futureStocks.xlsx')
 
