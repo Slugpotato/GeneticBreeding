@@ -35,35 +35,52 @@ def main(argv=None):
     # print("my evolveFunc is ", evolveFunc)
     # print("evolveFunc is of length ", len(evolveFunc))
 
+    # Budget and population count
     budget = 1000
     p_count = 100
 
+    # Create an initial population
     p = population(p_count, listOfStocks, 1, numOfStocks)
-    fitness_history = [grade(p, budget), ]
-    for i in range(1, 100):
-        p = evolve(p, budget, retain, random_select, mutate)
-        fitness_history.append(grade(p, budget))
-        # print("I is currently ", i)
 
+    # Record initial population grade
+    fitness_history = [grade(p, budget), ]
+
+    # Repeat for 100 generations
+    for i in range(1, 100):
+
+        # Evolve the population
+        p = evolve(p, budget, retain, random_select, mutate)
+
+        # Record grade of new population
+        fitness_history.append(grade(p, budget))
+        # print("Currently on generation: ", i, )
+
+    # Print out final generation and cumulative price of stocks in final generation
     finalList = p[0]
     finalPrice = 0
     for indi in finalList:
         finalPrice = finalPrice + indi[1]
 
+    print("p[0] is ", p[0])
+    print("And final price is: ", finalPrice)
+    print('\n')
 
+
+    # Print out and graoh fitness history
     i = 0
     xAxis = []
-    for datum in fitness_history:
+    for gen in fitness_history:
         i = i + 1
         xAxis.append(i)
 
     print("fitness_history is ", fitness_history)
+
+    # Uncomment to see data points on graph
+    # plt.plot(xAxis, fitness_history, 'ro', )
+
     plt.plot(xAxis, fitness_history, 'r--', )
     plt.ylabel('Fitness')
     plt.xlabel('Generation')
-    print('\n')
-    print("p[0] is ", p[0])
-    print("And final price is: ", finalPrice)
     plt.show()
 
 
@@ -187,10 +204,10 @@ def evolve(givenPopulation, budget, retain, random_select, mutate):
             parent1 = myParents[parent1]
             parent2 = myParents[parent2]
 
-            # Create a child by adding the first half of the first parent and the second half
+            # Create a child by adding the second half of the first parent and the first half
             # of the second parent
             half = len(parent1) / 2
-            child = parent1[int(half):] + parent2[:int(half)]
+            child = parent1[:int(half)] + parent2[int(half):]
             children.append(child)
 
     # Add children to parents and return the population of the next generation
